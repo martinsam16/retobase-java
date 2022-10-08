@@ -4,7 +4,7 @@
 
 1. Tener seteado la variable de entorno JAVA_HOME, utilizamos JDK8
 
-2. Tener Docker instalado
+2. Tener Docker y Docker Compose instalado
 
 3. Tener expuesto el daemon de docker sin TLS en tcp://localhost:2375:
 
@@ -92,13 +92,25 @@ terraform output
 
 
 
-
-
 Si se desea destruir los recursos creados:
 
 ```shell
 terraform destroy -auto-approve
 ```
+
+
+
+## Bash para ejecutar localmente el microservicio y la base de datos
+
+```shell
+./run.sh
+# ver logs
+docker-compose logs -f
+# Detener y eliminar contenedores
+docker-compose down
+```
+
+
 
 ## Problemática
 
@@ -110,7 +122,7 @@ terraform destroy -auto-approve
 
 3. Generar un DockerFile, que permita construir el build de una imagen con en backend. ✅
 
-4. Generar un DockerFile, que permita construir el build de una imagen personalizada con la base de datos.
+4. Generar un DockerFile, que permita construir el build de una imagen personalizada con la base de datos. ✅
 
 5. Generar un bashero/yml que realice la construcción automática de las imágenes mediante los archivos DockerFile respectivos.
 

@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  postgre-db:
+    image: "postgres:9.5-alpine"
+    container_name: "retoibm-db"
+    volumes:
+      - ./sql_files:/docker-entrypoint-initdb.d
+    env_file:
+      - dev.env
+    ports:
+      - "5432:5432"
+
+  microservicios-backend-retoibm:
+    image: "retoibm.azurecr.io/microservicios-backend-retoibm:latest"
+    container_name: "microservicios-backend-retoibm"
+    env_file:
+      - dev.env
+    ports:
+      - "3081:3081"
+    depends_on:
+      - postgre-db
