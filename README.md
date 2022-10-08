@@ -29,7 +29,7 @@
 
 1. 01 nginx como puerta de entrada (reverse proxy)
 
-2. 01 backend Java
+2. 01 backend Java ✅
 
 3. 01 base de datos Postgres
 
@@ -40,7 +40,7 @@
 ### Bash para compilación y dockerización local
 
 1. Limpiará el build construido y creará un paquete .jar
-2. Creará 2 imagenes de docker:
+2. Creará 2 imágenes de docker:
    1. Una tagueada con la versión del proyecto: *retoibm.azurecr.io/microservicios-backend-retoibm:1.0.0-SNAPSHOT*
    2. Una latest: *retoibm.azurecr.io/microservicios-backend-retoibm:latest*
 
@@ -108,17 +108,17 @@ terraform destroy -auto-approve
 
 ## Consideraciones
 
-1. Subir los archivos solicitados a Github/Gitlab/Bitbucket en un repositorio en modo público, de manera que todos los archivos puedan ser descargados para su revisión.
+1. Subir los archivos solicitados a Github/Gitlab/Bitbucket en un repositorio en modo público, de manera que todos los archivos puedan ser descargados para su revisión. ✅
 
 2. Considerar al menos un test unitario para el backend.
 
-3. Considerar el build automático del backend mediante un gestor de dependencias (maven, gradle, etc...)
+3. Considerar el build automático del backend mediante un gestor de dependencias (maven, gradle, etc...) ✅
 
 4. Para la base de datos, considerar solo una tabla simple (sumando01, sumando02, resultado)
 
 5. Considerar la cláusula HEALTCHECK dentro del Dockerfile del backend ✅
 
-6. En caso tuvieras problemas con la instalación de docker puedes usar: "https://labs.play-with-docker.com" y recuerda guardar los archivos en tu propio repositorio
+6. En caso tuvieras problemas con la instalación de docker puedes usar: "https://labs.play-with-docker.com" y recuerda guardar los archivos en tu propio repositorio ✅
 
 7. En caso usaras kubernetes, puedes usar "https://labs.play-with-k8s.com" y recuerda guardar los archivos en tu propio repositorio
 
