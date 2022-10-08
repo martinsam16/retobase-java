@@ -22,6 +22,7 @@ spec:
               value: jdbc:postgresql://retoibm-postgresql-server.postgres.database.azure.com:5432/retoibm-postgresql-db
             - name: POSTGRES_USER
               value: retoibm@retoibm-postgresql-server
+              # TODO Use secret
             - name: POSTGRES_PASSWORD
               value: R3T@iBm$
           ports:

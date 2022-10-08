@@ -119,11 +119,29 @@ terraform apply -auto-approve
 terraform output
 ```
 
+
+4. Azure Kubernetes Service
+   Entrar a la carpeta 📂terraform/azure-kubernetes-service
+
+```shell
+terraform init
+terraform validate
+# gitops :D
+terraform plan -out "azure-kubernetes-service"
+terraform apply -auto-approve
+
+# Para ver los outputs
+terraform output
+```
+
+
 Si se desea destruir los recursos creados:
 
 ```shell
 terraform destroy -auto-approve
 ```
+
+
 
 ## Correr code-coverage
 ```shell
