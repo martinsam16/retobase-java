@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: retoibm-be
+  labels:
+    app: retoibm-be
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: retoibm-be
+  template:
+    metadata:
+      labels:
+        app: retoibm-be
+    spec:
+      containers:
+        - name: microservicios-backend-retoibm
+          image: retoibm.azurecr.io/microservicios-backend-retoibm:latest
+          envFrom:
+            - configMapRef:
+                name: config-env-files-backend
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
