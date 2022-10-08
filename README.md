@@ -10,7 +10,7 @@
 
    - Docker Desktop
 
-   ![](C:\Users\martinsam16xyz\Documents\GitHub\kyndril\retobase-java\docs\expose-docker-daemon.png)
+   ![screenshot](./docs/expose-docker-daemon.png)
 
    - Linux
 
@@ -79,8 +79,6 @@ Si se desea destruir los recursos creados:
 ```shell
 terraform destroy -auto-approve
 ```
-
-
 
 ## Problemática
 
