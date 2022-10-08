@@ -1,0 +1,1 @@
+ALTER SEQUENCE suma_idsum_seq RESTART WITH	6	;

@@ -27,11 +27,11 @@
 
 ## Arquitectura Solicitada
 
-1. 01 nginx como puerta de entrada (reverse proxy)
+1. 01 nginx como puerta de entrada (reverse proxy) ✅
 
 2. 01 backend Java ✅
 
-3. 01 base de datos Postgres
+3. 01 base de datos Postgres ✅
 
 4. Docker ✅
 
@@ -39,7 +39,7 @@
 
 ### Bash para compilación y dockerización local
 
-1. Limpiará el build construido y creará un paquete .jar desde un maven wrapper.
+1. Limpiará el build construido y creará un paquete .jar desde un maven wrapper (corriendo las pruebas unitarias).
 2. Creará 2 imágenes de docker:
    1. Una tagueada con la versión del proyecto: *retoibm.azurecr.io/microservicios-backend-retoibm:1.0.0-SNAPSHOT*
    2. Una latest: *retoibm.azurecr.io/microservicios-backend-retoibm:latest*
@@ -115,7 +115,7 @@ terraform destroy -auto-approve
 
 ## Problemática
 
-0. Almacenar los números y el resultado en una base de datos.
+0. Almacenar los números y el resultado en una base de datos. ✅
 
 1. Generar un bashero/yml que realice la compilación del backend de forma automática, ejecutando los test unitarios. ✅
 
@@ -143,11 +143,11 @@ terraform destroy -auto-approve
 
 1. Subir los archivos solicitados a Github/Gitlab/Bitbucket en un repositorio en modo público, de manera que todos los archivos puedan ser descargados para su revisión. ✅
 
-2. Considerar al menos un test unitario para el backend.
+2. Considerar al menos un test unitario para el backend. ✅
 
 3. Considerar el build automático del backend mediante un gestor de dependencias (maven, gradle, etc...) ✅
 
-4. Para la base de datos, considerar solo una tabla simple (sumando01, sumando02, resultado)
+4. Para la base de datos, considerar solo una tabla simple (sumando01, sumando02, resultado) ✅
 
 5. Considerar la cláusula HEALTCHECK dentro del Dockerfile del backend ✅
 
@@ -159,8 +159,8 @@ terraform destroy -auto-approve
 
 ## Sugerencias
 
-1. Puedes usar Springboot o Micronaut.io, con los cuales tendrás el backend en custión de minutos.
+1. Puedes usar Springboot o Micronaut.io, con los cuales tendrás el backend en custión de minutos. ✅
 
-2. En caso algún punto te resulte complicado puedes avanzar con los demás.
+2. En caso algún punto te resulte complicado puedes avanzar con los demás. ✅
 
 3. El Backend debe poder ser multiréplicas, ten cuidado de no exponer el puerto como external.

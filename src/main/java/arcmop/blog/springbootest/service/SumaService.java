@@ -5,6 +5,8 @@ import arcmop.blog.springbootest.repository.model.Suma;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SumaService {
 
@@ -18,6 +20,10 @@ public class SumaService {
                 .resultado(x + y)
                 .build();
         return sumaRepository.save(suma);
+    }
+
+    public List<Suma> findAll(){
+        return sumaRepository.findAll();
     }
 
 }

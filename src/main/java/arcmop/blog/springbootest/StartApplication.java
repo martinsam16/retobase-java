@@ -1,9 +1,9 @@
-package arcmop.blog.springbootest.configuracion;
+package arcmop.blog.springbootest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages = "arcmop.blog.springbootest")
+@SpringBootApplication
 public class StartApplication {
 
 	public static void main(String[] args) {

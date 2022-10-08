@@ -4,11 +4,11 @@
 -- tables
 -- Table: SUMA
 CREATE TABLE SUMA (
-    id serial  NOT NULL,
-    sumando01 decimal(4,2)  NOT NULL,
-    sumando02 decimal(4,2)  NOT NULL,
-    resultado decimal(4,2)  NOT NULL,
-    CONSTRAINT SUMA_pk PRIMARY KEY (id)
+    idsum serial  NOT NULL,
+    sumando01 decimal(15,2)  NOT NULL,
+    sumando02 decimal(15,2)  NOT NULL,
+    resultado decimal(15,2)  NOT NULL,
+    CONSTRAINT SUMA_pk PRIMARY KEY (idsum)
 );
 
 -- End of file.

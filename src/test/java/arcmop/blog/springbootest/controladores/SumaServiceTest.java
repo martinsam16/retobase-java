@@ -15,33 +15,22 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.BDDMockito;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.mockito.Matchers.any;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
-@ContextConfiguration(classes = {SumaService.class, SumaRepository.class})
-//@DataJpaTest
+@ContextConfiguration(classes = {SumaRepository.class})
 @EnableAutoConfiguration
 public class SumaServiceTest {
-
-
-    @InjectMocks
-    private SumaService sumaService;
 
     @MockBean(name = "sumaRepository")
     private SumaRepository sumaRepository;
@@ -50,7 +39,7 @@ public class SumaServiceTest {
     private final double SUM02 = 20.0;
     private final double RESULTADO = 30.0;
 
-    private Suma suma = Suma.builder()
+    private final Suma suma = Suma.builder()
             .sumando01(SUM01)
             .sumando02(SUM02)
             .resultado(RESULTADO)
