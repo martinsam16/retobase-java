@@ -141,13 +141,10 @@ terraform apply -auto-approve
 terraform output
 ```
 
-
 Si se desea destruir los recursos creados:
-
 ```shell
 terraform destroy -auto-approve
 ```
-
 
 
 ## Correr code-coverage
@@ -160,6 +157,24 @@ Entrar a la carpeta 📂jenkins
 ```shell
 docker-compose up -d
 ```
+
+## Correr manifestos de k8s
+Entrar a la carpeta 📂manifests
+```shell
+kubectl apply -f .
+```
+
+## Tabla de Despliegues
+| Plataforma                  | Server | Usuario | Contraseña                       |
+|-----------------------------|--------|---------|----------------------------------|
+| Azure Registry              | retoibm.azurecr.io       | retoibm | Iv+FuMkv2yfGu4L+YHeF+G5HSiszDXwd |
+| Azure Postgredb             |    retoibm-postgresql-server.postgres.database.azure.com    | retoibm | R3T@iBm$                         |
+| Sonarqube                   |     http://sonarqube-reto-ibm.brazilsouth.azurecontainer.io:9000/  | admin   | admin                            |
+| AKS microservicio deployado |  http://20.206.208.158/retoibm      |         |                                  |
+
+
+
+
 
 ## Problemática
 
@@ -183,7 +198,7 @@ docker-compose up -d
 
 8. Continuous Delivery     : Implementar Docker Registry en Azure ✅, Artifactory, Nexus Sonatype
 
-8. Continuous Deployment   : Realizar un Pipeline (Jenkins, vía código) / Plan (vía código *Bamboo Specs*) para el deploy automático
+8. Continuous Deployment   : Realizar un Pipeline (Jenkins, vía código) ⚙️/ Plan (vía código *Bamboo Specs*) para el deploy automático ⚙
 
 
 
@@ -201,7 +216,7 @@ docker-compose up -d
 
 6. En caso tuvieras problemas con la instalación de docker puedes usar: "https://labs.play-with-docker.com" y recuerda guardar los archivos en tu propio repositorio ✅
 
-7. En caso usaras kubernetes, puedes usar "https://labs.play-with-k8s.com" y recuerda guardar los archivos en tu propio repositorio
+7. En caso usaras kubernetes, puedes usar "https://labs.play-with-k8s.com" y recuerda guardar los archivos en tu propio repositorio ✅
 
 
 
@@ -211,4 +226,31 @@ docker-compose up -d
 
 2. En caso algún punto te resulte complicado puedes avanzar con los demás. ✅
 
-3. El Backend debe poder ser multiréplicas, ten cuidado de no exponer el puerto como external.
+3. El Backend debe poder ser multiréplicas, ten cuidado de no exponer el puerto como external. ✅
+
+## Screenshots
+- Recursos creados con Terraform
+![Recursos Azure](./docs/recursos-az.png)
+
+- Sonarqube deplegado en el servicio de Azure Container Instance
+![Recursos Azure](./docs/sonarqube-az.png)
+
+- Azure Container Registry
+![Recursos Azure](./docs/conrtainer-registry.png)
+
+- Azure Kubernetes Service con los manifiestos corriendo
+![Recursos Azure](./docs/aks.png)
+
+- Testeando API ingress del backend (listar)
+![Recursos Azure](./docs/api-listar.png)
+
+- Testeando API ingress del backend (sumar y guardar)
+![Recursos Azure](./docs/api-guardar.png)
+
+- Testeando conexión a la base de datos
+![Recursos Azure](./docs/database-conection.png)
+
+- Viendo la data que registra el microservicio en la tabla de la db
+![Recursos Azure](./docs/db-data.png)
+
+
