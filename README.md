@@ -64,6 +64,15 @@ docker-compose logs -f
 # Detener y eliminar contenedores
 docker-compose down
 ```
+- Docker compose
+![sumar](./docs/retobase-java.png)
+- Nginx reverse proxy
+![reverse-proxy](./docs/reverse-proxy.png)
+- Sumar desde reverse proxy
+![listar](./docs/sumar-local.png)
+- Listar desde reverse proxy
+![listar](./docs/listar-local.png)
+
 
 ## Infraestructura Cloud (Azure)
 
@@ -147,16 +156,17 @@ terraform destroy -auto-approve
 ```
 
 
-## Correr code-coverage
+## Ejecutar code-coverage en sonarqube
 ```shell
 ./coverage.sh
 ```
 
-## Correr Jenkins
+## Ejecutar Jenkins
 Entrar a la carpeta 📂jenkins
 ```shell
 docker-compose up -d
 ```
+![Jenkins](./docs/jenkins.png)
 
 ## Correr manifestos de k8s
 Entrar a la carpeta 📂manifests
