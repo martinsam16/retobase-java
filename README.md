@@ -65,11 +65,14 @@ docker-compose logs -f
 docker-compose down
 ```
 - Docker compose
-![sumar](./docs/retobase-java.png)
+![docker-compose](./docs/retobase-java.png)
+
 - Nginx reverse proxy
 ![reverse-proxy](./docs/reverse-proxy.png)
+
 - Sumar desde reverse proxy
-![listar](./docs/sumar-local.png)
+![sumar](./docs/sumar-local.png)
+
 - Listar desde reverse proxy
 ![listar](./docs/listar-local.png)
 
@@ -183,7 +186,30 @@ kubectl apply -f .
 | AKS microservicio deployado |  http://20.206.208.158/retoibm      |         |                                  |
 
 
+## Screenshots
+- Recursos creados con Terraform
+![Recursos Azure](./docs/recursos-az.png)
 
+- Sonarqube deplegado en el servicio de Azure Container Instance
+![Recursos Azure](./docs/sonarqube-az.png)
+
+- Azure Container Registry
+![Recursos Azure](./docs/conrtainer-registry.png)
+
+- Azure Kubernetes Service con los manifiestos corriendo
+![Recursos Azure](./docs/aks.png)
+
+- Testeando API ingress del backend (listar)
+![Recursos Azure](./docs/api-listar.png)
+
+- Testeando API ingress del backend (sumar y guardar)
+![Recursos Azure](./docs/api-guardar.png)
+
+- Testeando conexión a la base de datos
+![Recursos Azure](./docs/database-conection.png)
+
+- Viendo la data que registra el microservicio en la tabla de la db
+![Recursos Azure](./docs/db-data.png)
 
 
 ## Problemática
@@ -237,30 +263,3 @@ kubectl apply -f .
 2. En caso algún punto te resulte complicado puedes avanzar con los demás. ✅
 
 3. El Backend debe poder ser multiréplicas, ten cuidado de no exponer el puerto como external. ✅
-
-## Screenshots
-- Recursos creados con Terraform
-![Recursos Azure](./docs/recursos-az.png)
-
-- Sonarqube deplegado en el servicio de Azure Container Instance
-![Recursos Azure](./docs/sonarqube-az.png)
-
-- Azure Container Registry
-![Recursos Azure](./docs/conrtainer-registry.png)
-
-- Azure Kubernetes Service con los manifiestos corriendo
-![Recursos Azure](./docs/aks.png)
-
-- Testeando API ingress del backend (listar)
-![Recursos Azure](./docs/api-listar.png)
-
-- Testeando API ingress del backend (sumar y guardar)
-![Recursos Azure](./docs/api-guardar.png)
-
-- Testeando conexión a la base de datos
-![Recursos Azure](./docs/database-conection.png)
-
-- Viendo la data que registra el microservicio en la tabla de la db
-![Recursos Azure](./docs/db-data.png)
-
-
