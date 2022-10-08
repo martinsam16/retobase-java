@@ -14,6 +14,8 @@ spec:
       labels:
         app: retoibm-be
     spec:
+      imagePullSecrets:
+        - name: image-pull-secret
       containers:
         - name: microservicios-backend-retoibm
           image: retoibm.azurecr.io/microservicios-backend-retoibm:latest
