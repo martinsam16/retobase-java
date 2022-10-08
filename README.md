@@ -104,6 +104,20 @@ terraform apply -auto-approve
 terraform output
 ```
 
+3. Azure Container Instance (Sonarqube)
+
+   Entrar a la carpeta 📂terraform/azure-container-instance-sonarqube
+
+```shell
+terraform init
+terraform validate
+# gitops :D
+terraform plan -out "azure-container-instance"
+terraform apply -auto-approve
+
+# Para ver los outputs
+terraform output
+```
 
 Si se desea destruir los recursos creados:
 
@@ -111,7 +125,16 @@ Si se desea destruir los recursos creados:
 terraform destroy -auto-approve
 ```
 
+## Correr code-coverage
+```shell
+./coverage.sh
+```
 
+## Correr Jenkins
+Entrar a la carpeta 📂jenkins
+```shell
+docker-compose up -d
+```
 
 ## Problemática
 
@@ -131,7 +154,7 @@ terraform destroy -auto-approve
 
    a) Nginx ---> Backend ----> Base Datos ✅
 
-7. Continuous Integration  : Realizar el despliegue mediante un toolchain de ALM (Github + Jenkins+ Sonarqube)
+7. Continuous Integration  : Realizar el despliegue mediante un toolchain de ALM (Github + Jenkins+ Sonarqube✅)
 
 8. Continuous Delivery     : Implementar Docker Registry en Azure ✅, Artifactory, Nexus Sonatype
 

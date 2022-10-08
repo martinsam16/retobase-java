@@ -17,9 +17,13 @@ spec:
       containers:
         - name: microservicios-backend-retoibm
           image: retoibm.azurecr.io/microservicios-backend-retoibm:latest
-          envFrom:
-            - configMapRef:
-                name: config-env-files-backend
+          env:
+            - name: POSTGRE_URL
+              value: jdbc:postgresql://retoibm-postgresql-server.postgres.database.azure.com:5432/retoibm-postgresql-db
+            - name: POSTGRES_USER
+              value: retoibm@retoibm-postgresql-server
+            - name: POSTGRES_PASSWORD
+              value: R3T@iBm$
           ports:
             - name: http
               containerPort: 8080

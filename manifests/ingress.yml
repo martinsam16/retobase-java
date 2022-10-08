@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: ingress-sadeb
+  name: ingress-retoibm
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
@@ -12,14 +12,9 @@ spec:
     - http:
         paths:
           - backend:
-              serviceName: sadeb-be
+              serviceName: retoibm-be
               servicePort: 80
             path: /backend/?(.*)
-            pathType: Prefix
-          - backend:
-              serviceName: sadeb-fe
-              servicePort: 90
-            path: /?(.*)
             pathType: Prefix
 
 ## run on azure shell

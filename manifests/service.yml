@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: sadeb-be
+  name: retoibm-be
 spec:
   ports:
     - nodePort: 31000
       port: 80
-      targetPort: 8080
+      targetPort: 3081
   selector:
-    app: sadeb-be
+    app: retoibm-be
   type: NodePort
