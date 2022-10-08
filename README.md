@@ -89,6 +89,13 @@ terraform output
 terraform output pssw_acr
 ```
 
+Para loguearse al registry privado:
+
+```shell
+docker login retoibm.azurecr.io --username retoibm --password Iv+FuMkv2yfGu4L+YHeF+G5HSiszDXwd
+```
+
+
 2. Azure for postgres
 
    Entrar a la carpeta 📂terraform/azure-postgresdb
