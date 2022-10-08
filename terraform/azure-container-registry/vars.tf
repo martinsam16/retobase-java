@@ -1,6 +1,6 @@
 variable "prefix" {
   description = "Prefijo de los recursos"
-  default     = "sadeb"
+  default     = "retoibm"
 }
 
 variable "location_acr" {
