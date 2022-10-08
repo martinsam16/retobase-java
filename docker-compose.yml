@@ -1,0 +1,46 @@
+version: "3.8"
+services:
+
+  microservicios-backend-retoibm:
+    image: "retoibm.azurecr.io/microservicios-backend-retoibm:latest"
+    container_name: "microservicios-backend-retoibm"
+    networks:
+      - local
+    env_file:
+      - dev.env
+    ports:
+      - "3081:3081"
+    depends_on:
+      postgre-db:
+        condition: service_healthy
+    links:
+      - postgre-db
+
+  postgre-db:
+    image: "postgres:9.5-alpine"
+    container_name: "postgre-db"
+    networks:
+      - local
+    volumes:
+      - ./sql_files:/docker-entrypoint-initdb.d
+    env_file:
+      - dev.env
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready" ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  nginx:
+    build: nginx
+    networks:
+      - local
+    ports:
+      - "80:80"
+    depends_on:
+      - microservicios-backend-retoibm
+
+networks:
+  local:

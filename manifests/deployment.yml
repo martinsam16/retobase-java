@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: retoibm-be
+  labels:
+    app: retoibm-be
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: retoibm-be
+  template:
+    metadata:
+      labels:
+        app: retoibm-be
+    spec:
+      imagePullSecrets:
+        - name: image-pull-secret
+      containers:
+        - name: microservicios-backend-retoibm
+          image: retoibm.azurecr.io/microservicios-backend-retoibm:latest
+          env:
+            - name: POSTGRE_URL
+              value: jdbc:postgresql://retoibm-postgresql-server.postgres.database.azure.com:5432/retoibm-postgresql-db
+            - name: POSTGRES_USER
+              value: retoibm@retoibm-postgresql-server
+              # TODO Use secret
+            - name: POSTGRES_PASSWORD
+              value: R3T@iBm$
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP

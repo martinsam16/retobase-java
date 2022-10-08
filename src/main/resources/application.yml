@@ -1,0 +1,18 @@
+server:
+  port: 3081
+  context-path: /retoibm
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database: postgresql
+    show-sql: true
+  datasource:
+    url: ${POSTGRE_URL:${custom.default-postgre-url}}
+    driver-class-name: org.postgresql.Driver
+    username: ${POSTGRES_USER:retoibm@retoibm-db}
+    password: ${POSTGRES_PASSWORD:R3t@&i3M}
+
+
+custom:
+  default-postgre-url: jdbc:postgresql://localhost:5432/retoibm-db
+
