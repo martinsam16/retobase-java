@@ -39,7 +39,7 @@
 
 ### Bash para compilación y dockerización local
 
-1. Limpiará el build construido y creará un paquete .jar
+1. Limpiará el build construido y creará un paquete .jar desde un maven wrapper.
 2. Creará 2 imágenes de docker:
    1. Una tagueada con la versión del proyecto: *retoibm.azurecr.io/microservicios-backend-retoibm:1.0.0-SNAPSHOT*
    2. Una latest: *retoibm.azurecr.io/microservicios-backend-retoibm:latest*
@@ -48,14 +48,29 @@
 ./build.sh
 ```
 
-### Aprovisionamiento de la infraestructura en Azure
+> Nota: Si se desea cambiar el prefijo de la imagen modificar en el pom.xml la propiedad: docker.image.prefix
+
+## Bash para ejecutar las imágenes automáticamente
+
+1. Ejecutará el bash anterior: build.sh
+2. Ejecutará la imagen construida previamente: microservicio
+3. Ejecutará la base de datos postgresql
+4. Creará un reverse proxy en Nginx
+
+```shell
+./run.sh
+# ver logs
+docker-compose logs -f
+# Detener y eliminar contenedores
+docker-compose down
+```
+
+## Infraestructura Cloud (Azure)
 
 ```shell
 # Nos logueamos en Azure
 az login
 ```
-
-#### Infraestructura
 
 1. Azure Container Registry
 
@@ -90,24 +105,10 @@ terraform output
 ```
 
 
-
-
 Si se desea destruir los recursos creados:
 
 ```shell
 terraform destroy -auto-approve
-```
-
-
-
-## Bash para ejecutar localmente el microservicio y la base de datos
-
-```shell
-./run.sh
-# ver logs
-docker-compose logs -f
-# Detener y eliminar contenedores
-docker-compose down
 ```
 
 
@@ -118,17 +119,17 @@ docker-compose down
 
 1. Generar un bashero/yml que realice la compilación del backend de forma automática, ejecutando los test unitarios. ✅
 
-2. Generar un DockerFile, que permita construir el build de una imagen de Nginx como reverse-proxy.
+2. Generar un DockerFile, que permita construir el build de una imagen de Nginx como reverse-proxy. ✅
 
 3. Generar un DockerFile, que permita construir el build de una imagen con en backend. ✅
 
 4. Generar un DockerFile, que permita construir el build de una imagen personalizada con la base de datos. ✅
 
-5. Generar un bashero/yml que realice la construcción automática de las imágenes mediante los archivos DockerFile respectivos.
+5. Generar un bashero/yml que realice la construcción automática de las imágenes mediante los archivos DockerFile respectivos. ✅
 
 6. Generar un bashero/yml que permita ejecutar las imágenes de Nginx y el Backend conectando
 
-   a) Nginx ---> Backend ----> Base Datos
+   a) Nginx ---> Backend ----> Base Datos ✅
 
 7. Continuous Integration  : Realizar el despliegue mediante un toolchain de ALM (Github + Jenkins+ Sonarqube)
 

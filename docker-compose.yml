@@ -19,3 +19,10 @@ services:
       - "3081:3081"
     depends_on:
       - postgre-db
+
+  nginx:
+    build: nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - microservicios-backend-retoibm
