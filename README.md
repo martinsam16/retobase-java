@@ -55,9 +55,9 @@
 az login
 ```
 
-#### Recursos
+#### Infraestructura
 
-1. Azure Container Registry: 
+1. Azure Container Registry
 
    Entrar a la carpeta 📂terraform/azure-container-registry
 
@@ -73,6 +73,26 @@ terraform output
 # Para ver la contraseña del registry
 terraform output pssw_acr
 ```
+
+2. Azure for postgres
+
+   Entrar a la carpeta 📂terraform/azure-postgresdb
+
+```shell
+terraform init
+terraform validate
+# gitops :D
+terraform plan -out "azure-postgresdb"
+terraform apply -auto-approve
+
+# Para ver los outputs
+terraform output
+```
+
+
+
+
+
 
 Si se desea destruir los recursos creados:
 
