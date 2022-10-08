@@ -1,23 +1,26 @@
 package arcmop.blog.springbootest.controladores;
 
+import arcmop.blog.springbootest.dto.SumaDto;
+import arcmop.blog.springbootest.service.SumaService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Collections;
-import java.util.Map;
 
 @RestController
 @RequestMapping
 public class ControladorHolaMundo {
 
-    @RequestMapping(value = "/sumar/{sum01}/{sum02}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody
-    Map saludar(@PathVariable("sum01") Integer sum01, @PathVariable("sum02") Integer sum02) {
-        return Collections.singletonMap("resultado", String.valueOf(sum01 + sum02));
+    @Autowired
+    private SumaService sumaService;
+
+    @GetMapping(value = "/sumar/{sum01}/{sum02}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody SumaDto saludar(@PathVariable("sum01") Integer sum01, @PathVariable("sum02") Integer sum02) {
+        return new SumaDto((int)sumaService.calculateAndSave(sum01, sum02).getResultado());
     }
 
 }
